@@ -10,7 +10,7 @@
 
 With **Flutterdon** you can post directly on your Mastodon account from a Chrome Extensions, or a webapp. All you have to do is to insert your instance and your bearerToken in the settings page and you are ready to post on Maston.
 
-To test the webapp you can launch it on [Zapp!](https://zapp.run/) by [Invertase](https://invertase.io/) at this link: [Flutterdon Preview on Zapp!](https://zapp.run/github/polilluminato/flutterdon)
+To test the webapp you can launch it on [Zapp!](https://zapp.run/) by [Invertase](https://invertase.io/) at this link: [Flutterdon Preview on Zapp!](https://zapp.run/github/polilluminato/flutterdon-flutter)
 
 ## 📗 Documentation
 
