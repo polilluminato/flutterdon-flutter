@@ -13,16 +13,10 @@ class App extends StatelessWidget {
         routeInformationProvider: router.routeInformationProvider,
         routeInformationParser: router.routeInformationParser,
         routerDelegate: router.routerDelegate,
-        themeMode: ThemeMode.dark,
         theme: ThemeData(
+          brightness: Brightness.dark,
           useMaterial3: true,
-          colorSchemeSeed: Colors.purple,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        // The Mandy red, dark theme.
-        darkTheme: ThemeData(
-          useMaterial3: true,
-          colorSchemeSeed: Colors.purple,
+          colorSchemeSeed: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
       );
