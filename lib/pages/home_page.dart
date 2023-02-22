@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutterdon/provider/mastodon_post_provider.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   HomePage({super.key});
   final TextEditingController _tootController = TextEditingController();
+  late final WidgetRef _ref;
+
+  void _sendToot() {
+    if (_tootController.text.isNotEmpty) {
+      _ref.read(postTootProvider(tootString: _tootController.text));
+    }
+  }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    _ref = ref;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -38,7 +49,7 @@ class HomePage extends StatelessWidget {
             ElevatedButton.icon(
               icon: const Icon(Icons.send),
               label: const Text("Send Toot!"),
-              onPressed: () => {},
+              onPressed: () => _sendToot(),
             )
           ],
         ),
