@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutterdon/provider/mastodon_post_provider.dart';
-import 'package:go_router/go_router.dart';
 
 class HomePage extends ConsumerWidget {
   HomePage({super.key});
@@ -28,7 +27,14 @@ class HomePage extends ConsumerWidget {
             child: IconButton(
               iconSize: 24,
               icon: const Icon(Icons.settings_outlined),
-              onPressed: () => context.push('/settings'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SettingsPage(),
+                  ),
+                );
+              },
             ),
           )
         ],

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutterdon/provider/mastodon_config_provider.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutterdon/utils/nil.dart';
 
 class SettingsPage extends ConsumerWidget {
   SettingsPage({Key? key}) : super(key: key);
@@ -44,10 +44,6 @@ class SettingsPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.pop(),
-        ),
         title: const Text("Settings"),
       ),
       body: SingleChildScrollView(
