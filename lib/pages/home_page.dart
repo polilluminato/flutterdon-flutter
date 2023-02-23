@@ -1,22 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutterdon/pages/settings_page.dart';
 import 'package:flutterdon/provider/mastodon_post_provider.dart';
 
 class HomePage extends ConsumerWidget {
   HomePage({super.key});
   final TextEditingController _tootController = TextEditingController();
-  late final WidgetRef _ref;
 
-  void _sendToot() {
+  void _sendToot(BuildContext context, WidgetRef ref) {
+    String snackBarStringResult = "";
+
     if (_tootController.text.isNotEmpty) {
-      _ref.read(postTootProvider(tootString: _tootController.text));
+      ref.read(
+        postTootProvider(
+          tootString: _tootController.text,
+        ),
+      );
+      //TODO: Check if the toot has been sent correctly
+      snackBarStringResult = "Toot sent correctly";
+    } else {
+      snackBarStringResult = "No text entered in toot post";
     }
+
+    //Show SnackBar with the result
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          snackBarStringResult,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    _ref = ref;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -55,7 +72,7 @@ class HomePage extends ConsumerWidget {
             ElevatedButton.icon(
               icon: const Icon(Icons.send),
               label: const Text("Send Toot!"),
-              onPressed: () => _sendToot(),
+              onPressed: () => _sendToot(context, ref),
             )
           ],
         ),

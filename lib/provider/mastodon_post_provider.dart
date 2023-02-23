@@ -6,10 +6,10 @@ part 'mastodon_post_provider.g.dart';
 
 @riverpod
 Future<bool> postToot(PostTootRef ref, {required String tootString}) async {
-  final mastodonConfiguration = ref.watch(mastodonConfigProvider);
+  final mastodonConfiguration = await ref.watch(mastodonConfigProvider.future);
 
-  if (mastodonConfiguration.instance == "" ||
-      mastodonConfiguration.bearerToken == "") {
+  if (mastodonConfiguration.instance == '' ||
+      mastodonConfiguration.bearerToken == '') {
     return false;
   } else {
     final mastodon = MastodonApi(

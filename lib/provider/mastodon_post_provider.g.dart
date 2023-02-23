@@ -6,7 +6,7 @@ part of 'mastodon_post_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$postTootHash() => r'adee401f375c6f7fc205408a6e3e9e1f19022b4a';
+String _$postTootHash() => r'dcdc81e19c35846042645a6757c5333edf8928ae';
 
 /// Copied from Dart SDK
 class _SystemHash {
